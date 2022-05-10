@@ -1,0 +1,31 @@
+minimum_cumulusci_version: '3.57.0'
+project:
+    name: project-8
+    package:
+        name: project-8
+        api_version: '54.0'
+    dependencies:
+        - github: 'http://ba.com'
+        - github: 'http://foo.com'
+    git:
+        default_branch: 'main'
+        prefix_feature: 'feature/'
+        prefix_beta: 'beta/'
+        prefix_release: 'release/'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/project-8/tests
+            options:
+                outputdir: robot/project-8/results
+
+    robot_testdoc:
+        options:
+            path: robot/project-8/tests
+            output: robot/project-8/doc/project-8_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
